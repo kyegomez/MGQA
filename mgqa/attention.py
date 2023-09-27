@@ -1458,7 +1458,7 @@ class MGQALayers(nn.Module):
         # iterate and construct layers
 
         for ind, (layer_type, layer_shift_tokens) in enumerate(zip(self.layer_types, shift_tokens)):
-            is_last_layer = ind == (len(self.layer_types) - 1)
+            ind == (len(self.layer_types) - 1)
 
             if layer_type == 'a':
                 layer = MGQA(dim, heads = heads, causal = causal, **attn_kwargs)
@@ -1571,7 +1571,7 @@ class MGQALayers(nn.Module):
         # go through the MGQA and feedforward layers
 
         for ind, (layer_type, (norm, block, residual_fn), layer_dropout) in enumerate(zip(*layer_variables)):
-            is_last = ind == (len(self.layers) - 1)
+            ind == (len(self.layers) - 1)
 
             if self.training and layer_dropout > 0. and random() < layer_dropout:
                 continue
