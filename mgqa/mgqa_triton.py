@@ -311,3 +311,18 @@ class _mgqa_attention(torch.autograd.Function):
 
 
 attention = _mgqa_attention.apply
+
+# Initialize random inputs
+q = torch.randn(10, 8, 16, 64)  # [batch_size, num_heads, seq_length, head_dim]
+k = torch.randn(10, 8, 16, 64)  # [batch_size, num_heads, seq_length, head_dim]
+v = torch.randn(10, 8, 16, 64)  # [batch_size, num_heads, seq_length, head_dim]
+
+# Set other parameters
+causal = False
+sm_scale = 0.1
+num_groups = 4  # Number of groups to divide the query heads into
+
+# Apply the attention
+output = attention(q, k, v, causal, sm_scale, num_groups)
+
+print(output)
