@@ -20,7 +20,7 @@ from mgqa.transformer import MGQATransformer, Decoder
 
 x = torch.randint(0, 20000, (1, 1024))
 
-model = MGQATransformer(
+model = MGQATransformer(e
     num_tokens = 20000,
     max_seq_len = 1024,
     attn_layers = Decoder(
